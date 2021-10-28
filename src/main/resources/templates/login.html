@@ -11,11 +11,19 @@
 
       <main class="px-3">
 
-        <h1>欢迎使用智慧校园</h1>
-        <p class="lead"></p>
-        <p class="lead">
-          <a href="/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white">登录</a>
-        </p>
+        <div class="tab-pane active container" id="login">
+          <p class="lead"><h1 class="cover-heading">登录</h1></p>
+          <p class="lead" th:text="${msg}"></p>
+          <form method="POST" th:action="@{/login}">
+            <p class="lead">
+              <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus></p>
+            <p class="lead">
+              <input type="password" name="password" class="form-control" placeholder="密码"></p>
+            <p><button class="btn btn-lg btn-secondary" type="submit">登录</button>
+            </p>
+          </form>
+        </div>
+
 
       </main>
 
