@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common::commonHeader('智慧校园')">
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+	<header th:replace="common::indexNav('msgBoard')"></header>
+
+	<main class="px-3">
+
+		<div class="container">
+			<div class="media">
+				<div class="media-heading">
+					<h1 th:utext="${post.title}">title</h1>
+					<h3 th:utext="${post.content}">title</h3>
+				</div>
+				<span th:text="${'发布于 ' + post.creationDate}"></span>
+			</div>
+			<h3><a href="/msgBoard">返回</a></h3>
+		</div>
+
+	</main>
+
+	<footer th:replace="common::commonFooter"></footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasec.exam01.dao.TeacherDao">
+
+    <resultMap type="com.javasec.exam01.entity.Teacher" id="TeacherMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="subname" column="subname" jdbcType="VARCHAR"/>
+        <result property="teaname" column="teaname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryBySub" resultMap="TeacherMap">
+        select
+          id, subname, teaname
+        from teacher
+        where subname = #{subname}
+    </select>
+
+</mapper>
+

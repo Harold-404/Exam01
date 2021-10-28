@@ -21,10 +21,10 @@ public class IndexController {
         return "teaQuery";
     }
 
-    @GetMapping(value = "/msgBoard")
-    public String msgBoardPage(Model model){
-        return "msgBoard";
-    }
+//    @GetMapping(value = "/msgBoard")
+//    public String msgBoardPage(Model model){
+//        return "msgBoard";
+//    }
 
     @GetMapping(value = "/download")
     public String downloadPage(Model model){

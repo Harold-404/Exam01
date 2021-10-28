@@ -7,7 +7,7 @@
   <body class="d-flex h-100 text-center text-white bg-dark">
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header th:replace="common::indexNav('teaQuery')"></header>
+      <header th:replace="common::indexNav('stuQuery')"></header>
 
       <main class="px-3">
 
@@ -18,18 +18,21 @@
           <div class="col-md-4 offset-md-4">
             <div class="input-group">
               <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="subname">
-                <option>语文</option>
-                <option>数学</option>
-                <option>英语</option>
-                <option>物理</option>
-                <option>化学</option>
-                <option>生物</option>
-                <option>音乐</option>
+                <option th:selected="${teacher.subname=='语文'}">语文</option>
+                <option th:selected="${teacher.subname=='数学'}">数学</option>
+                <option th:selected="${teacher.subname=='英语'}">英语</option>
+                <option th:selected="${teacher.subname=='物理'}">物理</option>
+                <option th:selected="${teacher.subname=='化学'}">化学</option>
+                <option th:selected="${teacher.subname=='生物'}">生物</option>
+                <option th:selected="${teacher.subname=='音乐'}">音乐</option>
               </select>
               <button type="submit" class="btn btn-lg btn-primary">提交</button>
             </div>
           </div>
         </form>
+        <br /><br /><br />
+        <p class="lead">学科：[[${teacher.subname}]]</p>
+        <p class="lead">教师：[[${teacher.teaname}]]</p>
 
       </main>
 

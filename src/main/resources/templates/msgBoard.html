@@ -4,23 +4,76 @@
 <head th:replace="common::commonHeader('智慧校园')">
 </head>
 
-  <body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-100 text-center text-white bg-dark">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header th:replace="common::indexNav('msgBoard')"></header>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header th:replace="common::indexNav('msgBoard')"></header>
 
-      <main class="px-3">
+    <main class="px-3">
 
-        <h1>欢迎使用智慧校园</h1>
-        <p class="lead"></p>
-        <p class="lead">
-          <a href="/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white">登录</a>
-        </p>
+      <div class="container">
+        <div class="container-fluid">
 
-      </main>
+          <!-- create post -->
+          <h3>发表帖子</h3>
+          <form action="#" th:action="@{/msgBoard}" th:object="${postDto}" method="POST">
+            <div class="row form-group">
+              <input th:field="*{title}" type="text" class="form-control" placeholder="标题"/>
+            </div>
+            <div class="row form-group">
+              <textarea th:field="*{content}" rows="3" class="form-control" style="resize: vertical" placeholder="正文"></textarea>
+            </div>
+            <input class="btn btn-primary text-right pull-right" type="submit" value="发表" />
+          </form>
 
-      <footer th:replace="common::commonFooter"></footer>
-    </div>
+          <!-- posts list -->
+          <h3>帖子列表</h3>
+          <ul class="list-group">
+            <li class="list-group-item" th:each="post:${posts}">
+              <div class="media">
+                <div class="media-heading">
+                  <h3><a th:href="@{/msgBoard/{postId}(postId=${post.id})}" th:text="${post.title}">title</a></h3>
+                  <h5 th:text="${post.content}">title</h5>
+                </div>
+                <span th:text="${'发布于 ' + post.creationDate}"></span>
+                <div class="media-right media-middle pull-right">
+                  <!--							<form th:method="GET" th:action="@{/posts/delete/{postId}(postId=${post.id})}">-->
+                  <!--								<button class="btn btn-danger" type="submit">删除</button>-->
+                  <!--							</form>-->
+                  <form th:method="DELETE" th:action="@{/msgBoard/{postId}(postId=${post.id})}">
+                    <button class="btn btn-danger" type="submit">删除</button>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
 
-  </body>
+        </div>
+      </div>
+
+    </main>
+
+    <footer th:replace="common::commonFooter"></footer>
+  </div>
+
+</body>
+
+<script>
+  $(document).ready(function() {
+    $(".editButton").click(function(event){
+      event.preventDefault();
+      var postId = $(this).data('post-id');
+      var postTitle = $(this).data('post-title');
+      var postContent = $(this).data('post-content');
+      $("#postEditModal").modal();
+
+      //filling up form
+      $(".modal-body #postId").val(postId);
+      $(".modal-body #postTitle").val(postTitle);
+      $(".modal-body #postContent").val(postContent);
+      $(".modal-body #editForm").attr('action', "/msgBoard");
+    })
+  });
+</script>
+
 </html>

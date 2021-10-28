@@ -11,11 +11,10 @@
 
       <main class="px-3">
 
-        <h1>欢迎使用智慧校园</h1>
-        <p class="lead"></p>
-        <p class="lead">
-          <a href="/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white">登录</a>
-        </p>
+        <form method="POST" th:action="@{/UPLOAD/uploadVul}" enctype="multipart/form-data">
+          <input type="file" name="file" />
+          <input type="submit" class="btn btn-sm btn-success" value="上传" />
+        </form>
 
       </main>
 

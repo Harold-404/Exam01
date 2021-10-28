@@ -13,7 +13,6 @@
 
         <h1 class="cover-heading">查询学生信息</h1>
         <p class="lead">仅显示基本信息，不包含敏感信息</p>
-
         <form class="container" action = "/stuQueryResult" method="GET">
           <div class="col-md-4 offset-md-4">
             <div class="input-group">
@@ -22,6 +21,10 @@
             </div>
           </div>
         </form>
+        <br /><br /><br />
+        <p class="lead">ID：[[${user.id}]]</p>
+        <p class="lead">姓名：[[${user.username}]]</p>
+        <p class="lead">年龄：[[${user.age}]]</p>
 
       </main>
 
