@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class mainController {
+public class MainController {
     @GetMapping(value = "/main/main")
     public String indexPage(Model model){
         return "main/main";
