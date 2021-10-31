@@ -12,14 +12,15 @@
 	<main class="px-3">
 
 		<div class="container">
-			<div class="media">
-				<div class="media-heading">
-					<h1 th:utext="${post.title}">title</h1>
-					<h3 th:utext="${post.content}">title</h3>
-				</div>
-				<span th:text="${'发布于 ' + post.creationDate}"></span>
+			<div class="row text-white bg-dark col-md-8 offset-md-2">
+				<h1 th:utext="${post.title}">标题</h1>
+				<br />
+				<h3 th:utext="${post.content}">title</h3>
+				<p class="text" th:utext="${'发布于 ' + post.creationDate}">发布时间</p>
+				<form th:method="GET" th:action="@{/msgBoard}">
+					<button class="btn btn-primary" type="submit">返回</button>
+				</form>
 			</div>
-			<h3><a href="/msgBoard">返回</a></h3>
 		</div>
 
 	</main>

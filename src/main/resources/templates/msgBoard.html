@@ -4,7 +4,7 @@
 <head th:replace="common::commonHeader('智慧校园')">
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-100 text-white bg-dark">
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header th:replace="common::indexNav('msgBoard')"></header>
@@ -12,41 +12,41 @@
     <main class="px-3">
 
       <div class="container">
-        <div class="container-fluid">
+        <div class="container-fluid col-md-8 offset-md-2">
 
           <!-- create post -->
-          <h3>发表帖子</h3>
-          <form action="#" th:action="@{/msgBoard}" th:object="${postDto}" method="POST">
-            <div class="row form-group">
+          <br /><br /><br />
+          <h3>发表留言</h3>
+          <br />
+          <form class="mx-auto" th:action="@{/msgBoard}" th:object="${postDto}" method="POST">
+            <div class="card form-group col-md-12">
               <input th:field="*{title}" type="text" class="form-control" placeholder="标题"/>
             </div>
-            <div class="row form-group">
-              <textarea th:field="*{content}" rows="3" class="form-control" style="resize: vertical" placeholder="正文"></textarea>
+            <br />
+            <div class="card form-group col-md-12">
+              <textarea th:field="*{content}" rows="2" class="form-control" style="resize: vertical" placeholder="正文"></textarea>
             </div>
-            <input class="btn btn-primary text-right pull-right" type="submit" value="发表" />
+            <br />
+            <input class="btn btn-primary text-end" type="submit" value="发表" />
           </form>
 
+          <br /><br />
+
           <!-- posts list -->
-          <h3>帖子列表</h3>
-          <ul class="list-group">
-            <li class="list-group-item" th:each="post:${posts}">
-              <div class="media">
-                <div class="media-heading">
-                  <h3><a th:href="@{/msgBoard/{postId}(postId=${post.id})}" th:text="${post.title}">title</a></h3>
-                  <h5 th:text="${post.content}">title</h5>
-                </div>
-                <span th:text="${'发布于 ' + post.creationDate}"></span>
-                <div class="media-right media-middle pull-right">
-                  <!--							<form th:method="GET" th:action="@{/posts/delete/{postId}(postId=${post.id})}">-->
-                  <!--								<button class="btn btn-danger" type="submit">删除</button>-->
-                  <!--							</form>-->
-                  <form th:method="DELETE" th:action="@{/msgBoard/{postId}(postId=${post.id})}">
-                    <button class="btn btn-danger" type="submit">删除</button>
-                  </form>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <h3>留言列表</h3>
+          <br />
+          <div class="card" th:each="post:${posts}">
+            <h5 class="card-header text-black" th:text="${'留言' + post.id}">留言</h5>
+            <div class="card-body">
+              <h5 class="card-title text-black"><a th:href="@{/msgBoard/{postId}(postId=${post.id})}" th:text="${post.title}">标题</a></h5>
+              <p class="card-title text-black" th:utext="${post.content}">正文</p>
+              <p class="card-text text-black" th:text="${'发布于 ' + post.creationDate}">发布时间</p>
+              <form class="card text-end" th:method="DELETE" th:action="@{/msgBoard/{postId}(postId=${post.id})}">
+                <button class="btn btn-danger" type="submit">删除</button>
+              </form>
+            </div>
+          </div>
+          <br /><br /><br />
 
         </div>
       </div>
@@ -57,23 +57,4 @@
   </div>
 
 </body>
-
-<script>
-  $(document).ready(function() {
-    $(".editButton").click(function(event){
-      event.preventDefault();
-      var postId = $(this).data('post-id');
-      var postTitle = $(this).data('post-title');
-      var postContent = $(this).data('post-content');
-      $("#postEditModal").modal();
-
-      //filling up form
-      $(".modal-body #postId").val(postId);
-      $(".modal-body #postTitle").val(postTitle);
-      $(".modal-body #postContent").val(postContent);
-      $(".modal-body #editForm").attr('action', "/msgBoard");
-    })
-  });
-</script>
-
 </html>
