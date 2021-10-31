@@ -9,13 +9,21 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header th:replace="common::indexNav('upload')"></header>
 
-      <main class="px-3">
-
-        <form method="POST" th:action="@{/UPLOAD/uploadVul}" enctype="multipart/form-data">
-          <input type="file" name="file" />
-          <input type="submit" class="btn btn-sm btn-success" value="上传" />
-        </form>
-
+      <main>
+        <h1 class="cover-heading">学习资料分享</h1>
+        <br />
+        <div class="input-group mb-3">
+          <form method="POST" class="col-md-8 offset-md-2" th:action="@{/upload}" enctype="multipart/form-data">
+            <div class="input-group">
+              <input type="file" class="form-control" name="file">
+              <input class="btn btn-success" type="submit" value="上传"/>
+            </div>
+          </form>
+          <br /><br />
+          <div class="text text-center col-md-12 mb-3" th:if="${message}">
+            <span style="color: forestgreen" th:text="${message}"/>
+          </div>
+        </div>
       </main>
 
       <footer th:replace="common::commonFooter"></footer>

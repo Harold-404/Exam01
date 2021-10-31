@@ -3,6 +3,7 @@ package com.javasec.exam01.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
@@ -11,12 +12,12 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping(value = "/stuQuery")
-    public String stuQueryPage(Model model){
-        return "stuQuery";
-    }
+//    @GetMapping(value = "/stuQuery")
+//    public String stuQueryPage(Model model){
+//        return "stuQuery";
+//    }
 
-    @GetMapping(value = "/teaQuery")
+    @RequestMapping(value = "/teaQuery")
     public String teaQueryPage(Model model){
         return "teaQuery";
     }
@@ -26,15 +27,15 @@ public class IndexController {
 //        return "msgBoard";
 //    }
 
-    @GetMapping(value = "/download")
-    public String downloadPage(Model model){
-        return "download";
-    }
+//    @GetMapping(value = "/download")
+//    public String downloadPage(Model model){
+//        return "download";
+//    }
 
-    @GetMapping(value = "/upload")
-    public String uploadPage(Model model){
-        return "upload";
-    }
+//    @GetMapping(value = "/upload")
+//    public String uploadPage(Model model){
+//        return "upload";
+//    }
 
     @GetMapping(value = "/register")
     public String registerPage(Model model){

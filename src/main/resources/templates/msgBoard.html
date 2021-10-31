@@ -14,7 +14,7 @@
       <div class="container">
         <div class="container-fluid col-md-8 offset-md-2">
 
-          <!-- create post -->
+          <!-- create msgBoard -->
           <br /><br /><br />
           <h3>发表留言</h3>
           <br />
@@ -35,13 +35,13 @@
           <!-- posts list -->
           <h3>留言列表</h3>
           <br />
-          <div class="card" th:each="post:${posts}">
-            <h5 class="card-header text-black" th:text="${'留言' + post.id}">留言</h5>
+          <div class="card" th:each="msgBoard:${posts}">
+            <h5 class="card-header text-black" th:text="${'留言' + msgBoard.id}">留言</h5>
             <div class="card-body">
-              <h5 class="card-title text-black"><a th:href="@{/msgBoard/{postId}(postId=${post.id})}" th:text="${post.title}">标题</a></h5>
-              <p class="card-title text-black" th:utext="${post.content}">正文</p>
-              <p class="card-text text-black" th:text="${'发布于 ' + post.creationDate}">发布时间</p>
-              <form class="card text-end" th:method="DELETE" th:action="@{/msgBoard/{postId}(postId=${post.id})}">
+              <h5 class="card-title text-black"><a th:href="@{/msgBoard/{postId}(postId=${msgBoard.id})}" th:text="${msgBoard.title}">标题</a></h5>
+              <p class="card-title text-black" th:utext="${msgBoard.content}">正文</p>
+              <p class="card-text text-black" th:text="${'发布于 ' + msgBoard.creationDate}">发布时间</p>
+              <form class="card text-end" th:method="DELETE" th:action="@{/msgBoard/{postId}(postId=${msgBoard.id})}">
                 <button class="btn btn-danger" type="submit">删除</button>
               </form>
             </div>

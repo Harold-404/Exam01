@@ -1,7 +1,6 @@
 package com.javasec.exam01.controller;
 
-import com.javasec.exam01.entity.Post;
-import com.javasec.exam01.service.PostService;
+import com.javasec.exam01.service.MsgBoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Map;
 
 @Controller
-public class PostController {
+public class MsgBoard {
 
-    public static final Logger logger = LoggerFactory.getLogger(PostController.class);
+    public static final Logger logger = LoggerFactory.getLogger(MsgBoard.class);
 
     @Autowired
-    private PostService postService;
+    private MsgBoardService msgBoardService;
 
     /*
      * Create a new post
      */
     @RequestMapping(value = "/msgBoard", method = RequestMethod.POST)
-    public String createPost(Model model, @ModelAttribute("postDto") Post post) {
-        logger.info("Creating post >> " + post);
-        this.postService.createPost(post);
+    public String createPost(Model model, @ModelAttribute("postDto") com.javasec.exam01.entity.MsgBoard msgBoard) {
+        logger.info("Creating post >> " + msgBoard);
+        this.msgBoardService.createPost(msgBoard);
         return "redirect:/msgBoard";
     }
 
@@ -48,7 +47,7 @@ public class PostController {
     @RequestMapping(value = "/msgBoard/{postId}", method = RequestMethod.DELETE)
     public String deletePost(@PathVariable("postId") Long postId) {
         logger.info("Deleting post id:" + postId);
-        this.postService.deletePost(postId);
+        this.msgBoardService.deletePost(postId);
         return "redirect:/msgBoard";
     }
 
@@ -58,7 +57,7 @@ public class PostController {
     @RequestMapping(value = "/msgBoard", method = RequestMethod.GET)
     public String listAllPosts(Model model) {
         logger.info("Litsing all posts...");
-        Map<String, Object> attributes = this.postService.findAllPosts();
+        Map<String, Object> attributes = this.msgBoardService.findAllPosts();
         model.addAllAttributes(attributes);
         return "msgBoard";
     }
@@ -69,7 +68,7 @@ public class PostController {
     @RequestMapping(value = "/msgBoard/{postId}", method = RequestMethod.GET)
     public String displayPostDetails(Model model, @PathVariable("postId") Long postId) {
         logger.info("Displaying post details >> postId: " + postId);
-        Map<String, Object> attributes = this.postService.findPost(postId);
+        Map<String, Object> attributes = this.msgBoardService.findPost(postId);
         model.addAllAttributes(attributes);
         return "msgDetail";
     }

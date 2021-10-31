@@ -20,11 +20,11 @@ public class StuQuery {
     @Resource
     private StuQueryService stuQueryService;
 
-    @GetMapping("/stuQueryResult")
+    @GetMapping("/stuQuery")
     public String selectOne(String id, Model model) throws Exception{
         User user = stuQueryService.selectUserByStatement(id);
         model.addAttribute("user", user);
-        return "stuQueryResult";
+        return "stuQuery";
     }
 
 }

@@ -16,7 +16,7 @@
 				<h1 th:utext="${post.title}">标题</h1>
 				<br />
 				<h3 th:utext="${post.content}">title</h3>
-				<p class="text" th:utext="${'发布于 ' + post.creationDate}">发布时间</p>
+				<p class="text" th:text="${'发布于 ' + post.creationDate}">发布时间</p>
 				<form th:method="GET" th:action="@{/msgBoard}">
 					<button class="btn btn-primary" type="submit">返回</button>
 				</form>

@@ -14,7 +14,7 @@
       <h1 class="cover-heading">查询学生信息</h1>
       <p class="lead">仅显示基本信息，不包含敏感信息</p>
 
-      <form class="container" action = "/stuQueryResult" method="GET">
+      <form class="container" action = "/stuQuery" method="GET">
         <div class="col-md-4 offset-md-4">
           <div class="input-group">
             <input type="number" class="form-control btn-lg" name="id" placeholder="学号" required autofocus>
@@ -22,6 +22,12 @@
           </div>
         </div>
       </form>
+      <div th:if="${user.id}">
+        <br /><br /><br />
+        <p class="lead">ID：[[${user.id}]]</p>
+        <p class="lead">姓名：[[${user.username}]]</p>
+        <p class="lead">年龄：[[${user.age}]]</p>
+      </div>
 
     </main>
 
