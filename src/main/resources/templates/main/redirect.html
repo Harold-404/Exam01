@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common::commonHeader('智慧校园')">
+</head>
+
+<body class="d-flex h-100 text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header th:replace="common::backNav('url')"></header>
+
+    <main class="px-3">
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-dark bg-light">
+                            <h5 class="card-title">FreeBuf</h5>
+                            <p class="card-text">国内网络安全行业门户，每日更新全球最新的安全资讯，以专业敏锐的视角展现独特的角度和观点</p>
+                            <a class="btn btn-primary" th:href="@{/main/redirect?url=http://www.freebuf.com}">访问</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-dark bg-light">
+                            <h5 class="card-title">先知社区</h5>
+                            <p class="card-text">先知安全技术社区，旨在为安全技术研究人员提供一个自由、开放、平等的交流平台</p>
+                            <a class="btn btn-primary" th:href="@{/main/redirect?url=http://xz.aliyun.com/}">访问</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-dark bg-light">
+                            <h5 class="card-title">SecWiki</h5>
+                            <p class="card-text">安全维基为初学者提供安全学习路线，对安全技术知识点进行汇总，致力于解决新手的学习和查阅难题</p>
+                            <a class="btn btn-primary" th:href="@{/main/redirect?url=http://sec-wiki.com}">访问</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body text-dark bg-light">
+                            <h5 class="card-title">CTFWiki</h5>
+                            <p class="card-text">介绍CTF中的各个方向的知识和技术，以便于初学者更好地学习CTF相关的知识</p>
+                            <a class="btn btn-primary" th:href="@{/main/redirect?url=http://ctf-wiki.org/}">访问</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer th:replace="common::commonFooter"></footer>
+</div>
+
+</body>
+</html>

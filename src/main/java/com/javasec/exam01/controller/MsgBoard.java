@@ -56,7 +56,7 @@ public class MsgBoard {
      */
     @RequestMapping(value = "/msgBoard", method = RequestMethod.GET)
     public String listAllPosts(Model model) {
-        logger.info("Litsing all posts...");
+        logger.info("Listing all posts...");
         Map<String, Object> attributes = this.msgBoardService.findAllPosts();
         model.addAllAttributes(attributes);
         return "msgBoard";

@@ -11,11 +11,14 @@
 
     <main class="px-3">
 
-        <h1>欢迎使用智慧校园</h1>
-        <p class="lead"></p>
-        <p class="lead">
-            <a href="/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white">登录</a>
-        </p>
+        <div th:if="${user!=null}">
+            <br /><br /><br />
+            <p class="lead">用户名：[[${user.username}]]</p>
+            <p class="lead">年龄：[[${user.age}]]</p>
+            <p class="lead">手机号：[[${user.phone}]]</p>
+            <p class="lead">地址：[[${user.address}]]</p>
+            <p class="lead">邮箱：[[${user.email}]]</p>
+        </div>
 
     </main>
 

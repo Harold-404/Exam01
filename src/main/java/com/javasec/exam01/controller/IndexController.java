@@ -42,8 +42,8 @@ public class IndexController {
         return "register";
     }
 
-    @GetMapping(value = "/login")
-    public String loginPage(Model model){
-        return "login";
-    }
+//    @GetMapping(value = "/login")
+//    public String loginPage(Model model){
+//        return "login";
+//    }
 }

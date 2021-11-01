@@ -51,11 +51,10 @@
 
     <header class="mb-auto" th:fragment="backNav(page)">
         <div>
-            <h3 class="float-md-start mb-0"><a style="text-decoration:none;color:white" href="/main/main">智慧校园</a></h3>
+            <h3 class="float-md-start mb-0"><a style="text-decoration:none;color:white" href="/main/info">智慧校园</a></h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link" th:classappend="${page=='main'}?'active'"  href="/main/main">首页</a>
                 <a class="nav-link" th:classappend="${page=='info'}?'active'"  href="/main/info">个人信息</a>
-                <a class="nav-link" th:classappend="${page=='url'}?'active'"  href="/main/url">学习站点</a>
+                <a class="nav-link" th:classappend="${page=='url'}?'active'"  href="/main/redirect">学习站点</a>
                 <a class="nav-link" th:classappend="${page=='download'}?'active'"  href="/main/download">课表下载</a>
                 <a class="nav-link" th:classappend="${page=='upload'}?'active'"  href="/main/upload">资料分享</a>
                 <a class="nav-link" th:classappend="${page=='admin'}?'active'"  href="/admin/admin">内网入口</a>

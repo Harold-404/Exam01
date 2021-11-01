@@ -9,13 +9,23 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header th:replace="common::backNav('download')"></header>
 
-    <main class="px-3">
+    <main>
+        <h1 class="cover-heading">课表下载</h1>
+        <br />
+        <div class="input-group mb-3">
 
-        <h1>欢迎使用智慧校园</h1>
-        <p class="lead"></p>
-        <p class="lead">
-            <a href="/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white">登录</a>
-        </p>
+            <form class="col-md-8 offset-md-2" action = "/main/download" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="filename" placeholder="文件名" required autofocus>
+                    <input class="btn btn-primary" type="submit" value="下载"/>
+                </div>
+            </form>
+
+            <br /><br />
+            <div class="text text-center col-md-12 mb-3" th:if="${message}!='未找到文件：/Users/litmons/IdeaProjects/Exam01/src/main/resources/static/file/null'">
+                <span style="color: forestgreen" th:text="${message}"/>
+            </div>
+        </div>
 
     </main>
 

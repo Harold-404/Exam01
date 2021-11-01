@@ -4,31 +4,35 @@
 <head th:replace="common::commonHeader('智慧校园')">
 </head>
 
-  <body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-100 text-center text-white bg-dark">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header th:replace="common::indexNav('login')"></header>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header th:replace="common::indexNav('login')"></header>
 
-      <main class="px-3">
+    <main class="px-3">
 
-        <div class="tab-pane active container" id="login">
-          <p class="lead"><h1 class="cover-heading">登录</h1></p>
-          <p class="lead" th:text="${msg}"></p>
-          <form method="POST" th:action="@{/login}">
-            <p class="lead">
-              <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus></p>
-            <p class="lead">
-              <input type="password" name="password" class="form-control" placeholder="密码"></p>
-            <p><button class="btn btn-lg btn-secondary fw-bold border-white bg-white" type="submit">登录</button>
-            </p>
-          </form>
-        </div>
+      <div class="tab-pane active container" id="login">
+        <p class="lead"><h1 class="cover-heading">登录</h1></p>
+        <p th:if="${error}" class="error">用户名或密码错误</p>
+        <br />
+        <form method="POST" class="col-md-6 offset-md-3" th:action="@{/login}">
+          <p class="lead">
+            <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
+          </p>
+          <p class="lead">
+            <input type="password" name="password" class="form-control" placeholder="密码">
+          </p>
+          <div class="d-grid gap-2">
+            <button class="btn block btn-primary" type="submit">登录</button>
+          </div>
+        </form>
+      </div>
 
+    </main>
 
-      </main>
+    <footer th:replace="common::commonFooter"></footer>
+  </div>
 
-      <footer th:replace="common::commonFooter"></footer>
-    </div>
+</body>
 
-  </body>
 </html>
